@@ -6,9 +6,10 @@ Python 2.7 due to library availabilty.
 
 
 ## Example use
+```
 pip install -r requirements.txt
 python merger.py SOURCE_DIRECTORY NAME.pdf
-
+```
 Will merge the files under SOURCE_DIRECTORY and store the results in NAME.pdf in the same directory.
 
 Note that the folder structure currently has to look as follows 
