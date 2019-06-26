@@ -2,8 +2,7 @@
 A simple script for merging multiple exam PDFs downloaded from a platform like RU's Brightspace into a single file for printing.
 Adds a watermark with RU student numbers and optionally different exam version (inferred from the folder structure) onto each page.
 Inserts empty pages to allow for convenient duplex printing.
-Python 2.7 due to library availabilty.
-
+Should be compatible with Python 2.7 and 3.6.
 
 ## Example use
 ```

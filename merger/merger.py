@@ -1,5 +1,9 @@
+try:
+    from BytesIO import BytesIO
+except ImportError:
+    from io import BytesIO
+
 import os
-import StringIO
 import re
 import argparse
 from PyPDF2 import PdfFileReader, PdfFileWriter
@@ -42,7 +46,8 @@ def write_files_to_output(directory, output_path):
                             if result is None:
                                 # search the first page of the file
                                 page = existing_pdf.getPage(0)
-                                page_content = page.extractText().encode('utf-8')
+
+                                page_content = page.extractText()
                                 result = pattern.search(page_content)
 
                             number = result.group(0) if result is not None else '0'
@@ -50,7 +55,7 @@ def write_files_to_output(directory, output_path):
                             # concatenate
                             version_student = str(file) + '_' + str(number)
                             # create the canvas with the watermark on it
-                            packet = StringIO.StringIO()
+                            packet = BytesIO()
                             # create a new PDF with Reportlab
                             can = canvas.Canvas(packet, pagesize=A4)
                             # shift about the canvas to have it start at the middle of the page
